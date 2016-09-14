@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/thomasbui93/thesis-blog/issues"
   },
-  "homepage": "https://github.com/thomasbui93/thesis-blog#readme"
+  "homepage": "https://github.com/thomasbui93/thesis-blog#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.0"
+  }
 }
