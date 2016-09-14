@@ -1,0 +1,19 @@
+{
+  "name": "thesis-blog",
+  "version": "0.0.1",
+  "description": "A blogging platform with NodeJS, MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasbui93/thesis-blog.git"
+  },
+  "author": "Khoa Bui <buidangkhoa2602@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasbui93/thesis-blog/issues"
+  },
+  "homepage": "https://github.com/thomasbui93/thesis-blog#readme"
+}
