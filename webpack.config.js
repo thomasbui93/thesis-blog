@@ -14,7 +14,7 @@ module.exports ={
     cache: true,
     entry: {
         module: path.join(srcPath, 'index.js'),
-        common: ['react', 'react-router', 'alt', 'react-dom', 'superagent']
+        common: ['react', 'react-router', 'react-dom', 'superagent']
     },
     resolve: {
         root: srcPath,
