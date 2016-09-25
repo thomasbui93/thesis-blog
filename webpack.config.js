@@ -1,12 +1,15 @@
+
 'use strict';
 
 var webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     path = require('path'),
-    srcPath = path.join(__dirname, 'client-src'),
+    srcPath = path.join(__dirname, 'src'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    OpenBrowserPlugin = require('open-browser-webpack-plugin'),
     autoprefixer = require('autoprefixer'),
-    cssnano = require('cssnano');
+    cssnano = require('cssnano'),
+    bemLinter = require('postcss-bem-linter');
 
 module.exports ={
 
@@ -14,12 +17,12 @@ module.exports ={
     cache: true,
     entry: {
         module: path.join(srcPath, 'index.js'),
-        common: ['react', 'react-router', 'react-dom', 'superagent']
+        common: ['react', 'react-router', 'alt', 'react-dom', 'superagent']
     },
     resolve: {
         root: srcPath,
         extensions: ['', '.js', '.scss'],
-        modulesDirectories: ['node_modules', 'client-src']
+        modulesDirectories: ['node_modules', 'src']
     },
     output: {
         path: path.join(__dirname, 'public'),
@@ -28,7 +31,7 @@ module.exports ={
         pathInfo: true
     },
     sassLoader: {
-        includePaths: [path.resolve(__dirname, "./client-src/sass")]
+        includePaths: [path.resolve(__dirname, "./src/sass")]
     },
     module: {
         preLoaders: [
@@ -55,7 +58,7 @@ module.exports ={
         new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
         new HtmlWebpackPlugin({
             inject: true,
-            template: 'client-src/index.html'
+            template: 'src/index.html'
         }),
 
         new webpack.optimize.OccurenceOrderPlugin( true ),
