@@ -1,7 +1,6 @@
 import Category from './category.model';
 
 const index = (req, res, next)=> {
-
     Category.find({})
         .exec((error, cats)=>{
             if(error){
@@ -11,7 +10,8 @@ const index = (req, res, next)=> {
                 return next(error);
             }
             res.json(cats);
-        })
+        });
+
 }
 
 const update = (req, res, next)=>{

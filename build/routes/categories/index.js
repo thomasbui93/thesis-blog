@@ -19,4 +19,3 @@ router.put("/:categoryId", update);
 router["delete"]("/:categoryId", remove);
 
 module.exports = router;
-//# sourceMappingURL=index.js.map

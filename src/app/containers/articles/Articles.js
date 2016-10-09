@@ -3,7 +3,6 @@ import {ArticleShortList} from '../../components/articles/ArticleShortList';
 import { getAll } from '../../utils/post';
 import {Loading} from '../../components/static/Loading';
 import {Error} from '../../components/static/Error';
-import {NotFound} from '../../components/static/NotFound';
 
 import DocumentMeta from 'react-document-meta';
 

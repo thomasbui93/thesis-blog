@@ -40,4 +40,3 @@ var Category = new Schema({
 Category.plugin(uniqueValidator);
 
 module.exports = mongoose.model("Category", Category);
-//# sourceMappingURL=category.model.js.map

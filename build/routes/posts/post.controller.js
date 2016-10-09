@@ -133,4 +133,3 @@ exports.create = create;
 exports.remove = remove;
 exports.getOne = getOne;
 exports.getCategoryPost = getCategoryPost;
-//# sourceMappingURL=post.controller.js.map

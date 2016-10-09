@@ -25,4 +25,3 @@ var Image = new Schema({
     }
 });
 module.exports = mongoose.model("Image", Image);
-//# sourceMappingURL=image.model.js.map

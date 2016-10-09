@@ -17,4 +17,3 @@ router.put("/:imageId", update);
 router["delete"]("/:imageId", remove);
 
 module.exports = router;
-//# sourceMappingURL=index.js.map

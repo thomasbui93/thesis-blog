@@ -22,4 +22,3 @@ router.put("/:postId", update);
 router["delete"]("/:postId", remove);
 router.get("/category/:categorySlug", getCategoryPost);
 module.exports = router;
-//# sourceMappingURL=index.js.map

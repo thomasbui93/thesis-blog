@@ -9,7 +9,6 @@ Object.defineProperty(exports, "__esModule", {
 var Category = _interopRequire(require("./category.model"));
 
 var index = function (req, res, next) {
-
     Category.find({}).exec(function (error, cats) {
         if (error) {
             return next(error);
@@ -82,4 +81,3 @@ exports.update = update;
 exports.create = create;
 exports.remove = remove;
 exports.getOne = getOne;
-//# sourceMappingURL=category.controller.js.map

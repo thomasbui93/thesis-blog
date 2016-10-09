@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import { meta } from '../../config';
-
+import eventEmitter from '../../events/events';
+import {POST} from '../../events/databases/config';
 let PostSchema = new Schema({
     createdAt: {
         type: Date,
@@ -59,6 +60,21 @@ PostSchema.pre('save', function (next) {
     }
 
     next();
+});
+
+PostSchema.post('save', (doc)=>{
+    "use strict";
+    if(this.isNew){
+        eventEmitter.emit(POST.NEW, doc);
+    }else {
+        eventEmitter.emit(POST.UPDATE, doc);
+    }
+});
+
+
+PostSchema.post('remove', (doc)=>{
+    "use strict";
+    eventEmitter.emit(POST.REMOVE, doc);
 });
 
 export default mongoose.model('Post', PostSchema);

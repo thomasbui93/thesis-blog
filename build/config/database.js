@@ -9,7 +9,9 @@ module.exports = {
             }
         }
     },
+    redis: {
+        port: 6379
+    },
     port: process.env.NODE_PORT || 3000,
     socket: 8000
 };
-//# sourceMappingURL=database.js.map

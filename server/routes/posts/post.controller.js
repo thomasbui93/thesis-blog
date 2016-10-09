@@ -1,5 +1,8 @@
 import Post from './post.model';
 import Category from '../categories/category.model';
+import {prefix} from '../../events/config';
+
+import { createClient as redisClient } from 'redis';
 
 const index = (req, res, next)=> {
 
@@ -76,17 +79,12 @@ const remove = (req, res, next)=>{
 }
 
 const getOne = (req, res, next)=>{
-    let id = req.params.postId;
-    Post.findOne({ slug: id})
-        .populate('category')
-        .exec((error, post)=>{
-            if(error) return next(error);
-            if(!post) return next(error);
+    const id = req.params.postId;
+    redisClient.get(id, (error, postJSON)=>{
+        if(postJSON){
+            res.json(JSON.parse(postJSON));
+        }
 
-            res.json(post);
-        });
-    /*if( id.length > 24){
-        // for slug
         Post.findOne({ slug: id})
             .populate('category')
             .exec((error, post)=>{
@@ -95,45 +93,43 @@ const getOne = (req, res, next)=>{
 
                 res.json(post);
             });
-    }
-    Post.findById(id)
-        .populate('category')
-        .exec((error, post)=>{
-            if(error) return next(error);
-            if(!post) return next(error);
+    });
 
-            res.json(post);
-        });
-        */
 }
 
 const getCategoryPost = (req, res, next)=>{
     const slug = req.params.categorySlug;
-    Category.findOne({url: slug}).exec((error,category)=>{
-        if(error){
-            return next(error);
-        }
-        if(category === null){
-            res.status(404).json({
-                msg: '404'
-            });
-        }else {
-            Post.find({category: category._id})
-                .populate('category')
-                .exec((error, posts)=>{
-                    if(error){
-                        return next(error);
-                    }
-                    if(!posts){
-                        return next(error);
-                    }
-                    res.json(posts);
-                })
+
+    redisClient.get(prefix+slug, (error, postList)=>{
+        if(postList){
+            res.json(JSON.parse(postList));
         }
 
+        Category.findOne({url: slug}).exec((error,category)=>{
+            if(error){
+                return next(error);
+            }
+            if(category === null){
+                res.status(404).json({
+                    msg: '404'
+                });
+            }else {
+                Post.find({category: category._id})
+                    .populate('category')
+                    .exec((error, posts)=>{
+                        if(error){
+                            return next(error);
+                        }
+                        if(!posts){
+                            return next(error);
+                        }
+                        redisClient.set(prefix+slug, JSON.stringify(posts));
+                        res.json(posts);
+                    })
+            }
+
+        });
     });
-
-
 }
 
 export { index, showBriefs, update, create, remove, getOne, getCategoryPost } ;

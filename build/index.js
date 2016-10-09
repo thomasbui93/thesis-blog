@@ -14,14 +14,19 @@ var serverConfig = _interopRequire(require("./config"));
 
 var compression = _interopRequire(require("compression"));
 
+var eventEmitterInstance = _interopRequire(require("./events/events"));
+
+var events = _interopRequire(require("./events"));
+
+events(eventEmitterInstance);
+
 var isDeveloping = process.argv[2] !== "--production";
 var port = isDeveloping ? 3000 : process.argv[3];
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression({ threshold: 0 }));
-//mongodb config
+//database config
 mongoose.connect(serverConfig.database.mongodb.uri, serverConfig.database.mongodb.options);
-
 //config routes
 
 var routes = _interopRequire(require("./routes"));
@@ -72,4 +77,3 @@ app.listen(port, "0.0.0.0", function onStart(err) {
   }
   console.info("==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.", port, port);
 });
-//# sourceMappingURL=index.js.map

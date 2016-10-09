@@ -14,4 +14,3 @@ router.post("/", authenticate);
 router.get("/me", getUser);
 router.post("/check", check);
 module.exports = router;
-//# sourceMappingURL=index.js.map
