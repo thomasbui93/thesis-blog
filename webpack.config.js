@@ -6,10 +6,8 @@ var webpack = require('webpack'),
     path = require('path'),
     srcPath = path.join(__dirname, 'src'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    OpenBrowserPlugin = require('open-browser-webpack-plugin'),
     autoprefixer = require('autoprefixer'),
-    cssnano = require('cssnano'),
-    bemLinter = require('postcss-bem-linter');
+    cssnano = require('cssnano');
 
 module.exports ={
 
