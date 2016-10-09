@@ -1,0 +1,53 @@
+.banner{
+  position: relative;
+  height: $banner-height;
+  margin:  0 0.5em;
+  padding: 0 $button-padding;
+  display: inline-block;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+  background-color 0.2s $animation-curve-default,
+  color 0.2s $animation-curve-default;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: $banner-height;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-family: $font-headline;
+  & i{
+    vertical-align: middle;
+  }
+  &--primary{
+    background-color: $banner-background;
+  }
+  &--safe{
+    background-color: $color-safe;
+  }
+  &--warning{
+    background-color: $color-warning;
+  }
+  &--harmony{
+    background-color: $banner-background;
+    &:hover, &.active{
+      background-color: darken( $banner-background, 10%);
+    }
+  }
+  &--light{
+    background-color: darken( $banner-background, 30%);
+  }
+  &--danger{
+    background-color: $color-danger;
+    color: white;
+  }
+  &--small{
+    border: 1px solid $color-secondary;
+    font-weight: 400;
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,18 @@
+@import "hightlight";
+@import "round";
+a{
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+.link-list{
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  & a{
+    position: relative;
+    margin: 0.5em;
+    font-weight:500;
+    color: white;
+  }
+}

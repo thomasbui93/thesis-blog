@@ -1,0 +1,65 @@
+.category{
+  position: relative;
+  padding: 0 2em 0.5em 2em;
+  background-color: lighten($color-dashboard, 50%);
+  cursor: pointer;
+  @media (max-width: $grid-tablet-breakpoint - 1){
+    padding:0.5em;
+  }
+  &__title{
+    font-weight: 500;
+  }
+  &__main{
+    position: relative;
+    & >div{
+      position: relative;
+      padding: 0.5em;
+      &:focus{
+        background-color: white;
+      }
+    }
+  }
+  &__detail{
+    position: relative;
+    display: none;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    & >div{
+      position: relative;
+      &:focus{
+        background-color: white;
+      }
+    }
+  }
+  &.active  &__detail{
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+  }
+  &__control{
+    margin-top: 0.5em;
+  }
+}
+
+.category--new{
+  position: relative;
+  margin-top: 1em;
+  & h4{
+    position: relative;
+    padding-left: 2em;
+  }
+}
+.colorPost{
+  position: relative;
+  & .color__review{
+    position: absolute;
+    right: 1em;
+    top:3em;
+    margin: 0.5em;
+    width: 20px;
+    height: 20px;
+    z-index: 100;
+  }
+}

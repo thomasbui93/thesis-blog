@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    $dimensions
+\*------------------------------------*/
+$menu-height: 50px;
+$setting-width: 50px;
+/*------------------------------------*\
+    $font
+\*------------------------------------*/
+$font-headline: Lato,"Helvetica Neue",Arial,Verdana,Tahoma,"Lucida Sans",FreeSans,"Lucida Sans Unicode","Luxi Sans",sans-serif;;
+$font-primary:  'Roboto',Arial,Helvetica,sans-serif;;
+
+/*------------------------------------*\
+    $color
+\*------------------------------------*/
+@import "color";
+
+/*------------------------------------*\
+    buttons
+\*------------------------------------*/
+$button-height: 45px;
+$button-min-width: 64px !default;
+$button-height: 36px !default;
+$button-padding: 9px 20px !default;
+$button-margin: 4px !default;
+
+$banner-height : 30px;
+
+/*------------------------------------*\
+    animation
+\*------------------------------------*/
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+/*------------------------------------*\
+    input
+\*------------------------------------*/
+$input-background: #EEEEEE;
+$input-line: 45px;
+/*------------------------------------*\
+    responsive breakpoint
+\*------------------------------------*/
+$grid-desktop-breakpoint: 840px !default;
+$grid-tablet-breakpoint: 480px !default;

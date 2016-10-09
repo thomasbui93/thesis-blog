@@ -1,0 +1,26 @@
+%block{
+  position: relative;
+  display: block;
+}
+.block--center{
+  @extend %block;
+  margin: auto;
+}
+.hidden{
+  display: none !important;
+}
+
+.right{
+  right: 0;
+  float: right;
+}
+.bottom--line{
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.mar--s{
+  margin: 0.3em;
+}
+.padding{
+  padding: 1em;
+}
