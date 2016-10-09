@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {Link } from 'react-router';
 
 export class ReaderHelper extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <div className="reader-helper">

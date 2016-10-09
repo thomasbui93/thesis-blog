@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from 'react-router';
+import { Router } from 'react-router';
 import { Link, Route, IndexRoute, History, browserHistory, hashHistory, useRouterHistory  } from 'react-router';
 import { createHashHistory } from 'history';
 
