@@ -1,0 +1,55 @@
+@import "settings";
+
+/*------------------------------------*\
+    SETTING 
+\*------------------------------------*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html{
+  font-family: $font-primary;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #222;
+  overflow-y: scroll;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, fieldset, legend, figure, table, th, td, caption, hr {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+}
+body{
+
+}
+.page__wrapper{
+  position: relative;
+  top: $menu-height;
+  left:0;
+  width: 100%;
+  min-height: 400px;
+  height: auto;
+  display: table;
+  background-color: #f4f5f6;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.sub-title{
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: white;
+  padding:0.5em;
+}

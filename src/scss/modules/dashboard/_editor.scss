@@ -1,0 +1,63 @@
+
+.editor{
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: table;
+  background-color: rgba(0,0,0,0.05);
+  &__control{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 32px;
+    margin: 0.5em;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    & div{
+      position: relative;
+      float: right;
+      display: block;
+      margin-right: 0.5em;
+    }
+    & button{
+      position: relative;
+      float: left;
+      left: 1em;
+    }
+  }
+  &__raw, &__preview{
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    background-color: transparent;
+    display: block;
+    padding: 0.5em;
+  }
+  pre{
+    background-color: white;
+    padding: 1em;
+  }
+  &__tag{
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    padding: 0.5em;
+    font-size: 0.8em;
+    background-color: #ccc;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  & ul{
+    padding: 1em;
+  }
+}
+.post-editor{
+  position: relative;
+  display: table;
+  width: 100%;
+  margin-bottom: 1em;
+  &__category{
+    position: relative;
+    padding: 0.5em;
+    margin: 0.5em;
+  }
+}

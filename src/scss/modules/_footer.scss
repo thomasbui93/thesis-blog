@@ -1,0 +1,51 @@
+.footer{
+  position: relative;
+  width:100%;
+  height: auto;
+  margin-top: 50px;
+  background: $color-secondary;
+  color: white;
+  & >div{
+    padding: 1em;
+  }
+  &__copyright{
+    position: relative;
+    width: 100%;
+    border-top: 1px solid white;
+  }
+  & .quick-links{
+    position: relative;
+    & >div{
+      position: relative;
+      margin-right: 1em;
+    }
+  }
+  .social--container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: table;
+    margin: 0.5em;
+    & .social--item{
+      position: relative;
+      float: left;
+      width: 50px;
+      height: 50px;
+      margin: 0.5em;
+      line-height: 40px;
+      transition: background-color 0.2s $animation-curve-fast-out-slow-in;
+      cursor: pointer;
+      background-color: $color-primary;;
+      &:hover{
+        background-color: darken($color-primary, 10%);
+      }
+    }
+    & img{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      left:5px;
+      top:5px;
+    }
+  }
+}

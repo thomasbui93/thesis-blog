@@ -1,0 +1,12 @@
+@import "../../base/settings";
+.sm--hidden{
+  @media (max-width: $grid-tablet-breakpoint - 1){
+    display: none ;
+  }
+}
+.sm--visible{
+  display: none ;
+  @media (max-width: $grid-tablet-breakpoint - 1){
+    display: block;
+  }
+}

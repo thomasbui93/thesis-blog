@@ -1,0 +1,123 @@
+@import "../../base/settings";
+@import "banner";
+
+.btn{
+  background: none;
+  border: none;
+  border-radius: 0;
+  position: relative;
+  margin: 0 1em;
+  min-width: $button-min-width;
+  padding: $button-padding;
+  display: inline-block;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+  background-color 0.2s $animation-curve-default,
+  color 0.2s $animation-curve-default;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1em;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  font-family: $font-primary;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &--hollow{
+    color: $color-primary;
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    &:hover{
+      background-color: $color-primary;
+      color: white;
+    }
+  }
+
+  &--primary{
+    background-color: $color-primary;
+    color: white;
+    &:hover, &:focus, &:active{
+      background-color: darken($color-primary, 10%);
+    }
+  }
+  &--danger{
+    background-color: $color-danger;
+    color: white;
+    &:hover, &:focus, &:active{
+      background-color: darken($color-danger, 10%);
+    }
+  }
+  &--warning{
+    background-color: $color-warning;
+    color: white;
+    &:hover, &:focus, &:active{
+      background-color: darken($color-warning, 10%);
+    }
+  }
+}
+@mixin mbtn($color: $color-primary){
+  background-color: $color;
+  color: $color-secondary;
+  border: 2px solid $color;
+  &:hover{
+    color: $color;
+    background-color: transparent;
+    border: 2px solid $color;
+  }
+}
+.mbtn{
+  background: none;
+  border: none;
+  border-radius: 0;
+  position: relative;
+  min-width: $button-min-width;
+  margin: 0.5em;
+  padding: .8em 1.2rem;
+  display: inline-block;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+  background-color 0.2s $animation-curve-default,
+  color 0.2s $animation-curve-default;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  font-family: $font-primary;
+  &--sm{
+    padding: 0.5em 0.5em;
+  }
+  &--p{
+    @include mbtn($color-primary);
+  }
+  &--s{
+    @include mbtn($color-safe);
+  }
+  &--d{
+    @include mbtn($color-danger);
+  }
+  &--w{
+    @include mbtn($color-warning);
+  }
+  &--h{
+    color: $color-primary;
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    &:hover{
+      background-color: $color-primary;
+      color: $color-secondary;
+      border: 2px solid $color-primary;
+    }
+  }
+}

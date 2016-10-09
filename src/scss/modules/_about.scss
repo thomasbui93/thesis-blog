@@ -1,0 +1,53 @@
+$split-height: 600px;
+.split-layout{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: $split-height;
+  @media (max-width: $grid-tablet-breakpoint - 1){
+    height: $split-height * 2;
+  }
+  &__image{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: $split-height;
+    overflow: hidden;
+    & img{
+      position: absolute;
+      top:0;
+      left: 50%;
+      height:100%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+  }
+  &__content{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.3);
+  }
+  &__trans, &__main{
+    position: relative;
+    height: $split-height;
+  }
+  &__main{
+    background-color: white;
+    @media (max-width: $grid-tablet-breakpoint - 1){
+      font-size: 0.8em;
+    }
+  }
+  &__trans{
+    color: white;
+    & > div{
+      height: $split-height;
+    }
+  }
+}

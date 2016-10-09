@@ -1,0 +1,120 @@
+@import "../../base/settings";
+@mixin input-reset(){
+  &:focus, &:active{
+    outline: 0;
+  }
+}
+.input-container{
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 1em;
+  & > input[type="text"], input[type="password"]{
+    position: relative;
+    border: none;
+    border-radius: 0;
+    height: 3em;
+    background-color: $input-background;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding-left: 1em;
+    transition: border-color 0.3s ease;
+    @include input-reset();
+  }
+  & label{
+    position: relative;
+    z-index: 2;
+    padding-left: 1em;
+    height: 2em;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.input--inline{
+  position: relative;
+  width: auto;
+  height: $input-line;
+  display: table;
+  border-collapse: separate;
+  & input[type="text"], & .input{
+    position: relative;
+    top: 5px;
+    left: 0;
+    display: table-cell;
+    float: left;
+    width: 150px;
+    height: $input-line - 10px;
+    padding-left: 1em;
+    background-color: black;
+    border: none;
+    z-index: 1;
+    @include input-reset();
+    transition: width 0.4s $animation-curve-fast-out-slow-in;
+    &:focus{
+      width: 250px;
+    }
+  }
+  & .input__button{
+    position: relative;
+    width: $input-line - 10px;
+    height: $input-line - 10px ;
+    top:5px;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    background-color: $color-primary;
+  }
+  & img{
+    position: absolute;
+    width: $input-line - 20px;
+    height: $input-line - 20px;
+  }
+}
+.input-box{
+  position: relative;
+  & .input{
+    position: relative;
+    width: 100%;
+    height: auto;
+    line-height: 25px;
+    padding: 0.5em;
+    &:focus{
+      background-color: white;
+    }
+  }
+  & .input:focus ~ .input__label{
+    display: block;
+  }
+  & .input__label{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 3px;
+    padding: 1px;
+    width: auto;
+    height: auto;
+    display: none;
+    background-color: $banner-background;
+    color: black;
+    font-weight: 500;
+    &.color{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  & .input__tag{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 3px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    font-size: 0.8em;
+    background-color: $banner-background;
+    text-transform: uppercase;
+  }
+}

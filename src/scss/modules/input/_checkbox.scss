@@ -1,0 +1,43 @@
+@import "../../base/settings";
+.checkbox-group {
+  position:relative;
+  padding: 5px;
+  & input[type=checkbox] {
+    display:none;
+    &:checked ~ label .checkbox--symbol:before{
+      -webkit-transform:rotate(-45deg);
+      -moz-transform:rotate(-45deg);
+      transform:rotate(-45deg);
+      opacity: 1;
+    }
+  }
+  & label{
+    padding-left:30px;
+    cursor:pointer;
+    margin-bottom:0;
+    & .checkbox__symbol{
+      position: absolute;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background-color: $color-primary;
+      &:before{
+        position: absolute;
+        content: '';
+        top: 4px;
+        left: 4px;
+        height:10px;
+        width:15px;
+        opacity: 0;
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        transition:  transform 0.2s $animation-curve-fast-out-linear-in, opacity 0.2s $animation-curve-fast-out-linear-in;
+      }
+    }
+    & .label__text{
+      position: relative;
+      margin-left: 35px;
+      line-height: 30px;
+    }
+  }
+}

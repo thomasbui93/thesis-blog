@@ -1,0 +1,15 @@
+.highlight-news{
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 0.5em;
+  & .highlight__wrapper{
+    position: relative;
+    padding: 1em;
+    & .news__wrapper{
+      position: relative;
+      width: 100%;
+    }
+  }
+}

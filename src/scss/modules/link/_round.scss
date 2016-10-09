@@ -1,0 +1,33 @@
+.link--round{
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+  border: 2px solid $color-secondary;
+  border-radius: 15px;
+  margin: 0.5em ;
+  padding: 0.5em 1em ;
+  font-weight: 600;
+  &:focus, &:active{
+    outline:none;
+  }
+  &.contrast{
+    color: white;
+    border-color:white ;
+  }
+  &.filled{
+    color: $color-secondary;
+    border-color: $color-primary;
+    background-color: $color-primary;
+    &:hover{
+      background-color: transparent;
+    }
+  }
+  &:hover{
+    color: $color-primary;
+    border-color:$color-primary ;
+  }
+}

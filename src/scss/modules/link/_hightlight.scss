@@ -1,0 +1,47 @@
+@import "../../base/settings";
+.link--highlight{
+  overflow: hidden;
+  &:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    background-color: $color-primary;
+    transition: opacity 0.2s $animation-curve-fast-out-linear-in;
+  }
+  &.vertical:before{
+    width: 2px;
+    height: 100%;
+  }
+  &:hover, &.is_active{
+    color: $color-primary;
+    &.vertical{
+      background-color: #eee;
+    }
+    &:before{
+     opacity: 1;
+    }
+  }
+}
+.link{
+  overflow: hidden;
+  &:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    background-color: transparentize($color-primary,0.2);
+    transition: opacity 0.2s $animation-curve-fast-out-linear-in;
+  }
+  &:hover{
+    &:before{
+      opacity: 1;
+    }
+  }
+}
