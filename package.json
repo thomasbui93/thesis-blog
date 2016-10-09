@@ -10,7 +10,7 @@
     "clean": "rm -rf build",
     "transform": "babel -d ./build ./server -s",
     "production": "node ./build/index.js --production 80 &",
-    "build": "webpack --progress --profile --colors --optimize-occurence-order --optimize-dedupe"
+    "build": "webpack --watch --progress --profile --colors --optimize-occurence-order --optimize-dedupe"
   },
   "repository": {
     "type": "git",
@@ -75,6 +75,7 @@
     "react-dom": "^0.14.7",
     "react-dropzone": "^3.3.2",
     "react-router": "^2.0.0-rc5",
+    "redis": "^2.6.2",
     "superagent": "^1.7.2",
     "time-ago": "^0.1.0",
     "to-markdown": "^2.0.1",

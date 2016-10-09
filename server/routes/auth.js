@@ -19,6 +19,4 @@ export default (req, res, next)=>{
     }else {
         next();
     }
-
-
 }

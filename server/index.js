@@ -12,9 +12,8 @@ const port = isDeveloping ? 3000 : process.argv[3];
 let app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression({ threshold: 0 }));
-//mongodb config
+//database config
 mongoose.connect(serverConfig.database.mongodb.uri, serverConfig.database.mongodb.options);
-
 //config routes
 
 import routes from './routes';

@@ -29,7 +29,6 @@ const update = (req, res, next)=>{
                 }else {
                     res.json(category);
                 }
-
             });
         });
 }

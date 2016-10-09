@@ -57,6 +57,7 @@ PostSchema.pre('save', function (next) {
             this.thumbnailImage = meta.defaultImage;
         }
     }
+
     next();
 });
 
