@@ -4,10 +4,11 @@
 import * as DB from './databases/config';
 import * as UTILS from './ultils/config';
 
-const {POST} = DB;
+const {POST, CATEGORY } = DB;
 const {VISITOR} = UTILS;
 const prefix = {
-    category: 'category'
+    category: 'category-',
+    post: 'post-'
 };
 
-export { POST, VISITOR, prefix};
+export { POST, CATEGORY, VISITOR, prefix};

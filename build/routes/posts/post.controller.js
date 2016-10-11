@@ -10,6 +10,16 @@ var Post = _interopRequire(require("./post.model"));
 
 var Category = _interopRequire(require("../categories/category.model"));
 
+var _eventsConfig = require("../../events/config");
+
+var prefix = _eventsConfig.prefix;
+var POST = _eventsConfig.POST;
+var CATEGORY = _eventsConfig.CATEGORY;
+
+var redisClient = _interopRequire(require("../../config/redis"));
+
+var eventEmitterInstance = _interopRequire(require("../../events/events"));
+
 var index = function (req, res, next) {
 
     Post.find({}).populate("category").exec(function (error, posts) {
@@ -76,51 +86,55 @@ var remove = function (req, res, next) {
 
 var getOne = function (req, res, next) {
     var id = req.params.postId;
-    Post.findOne({ slug: id }).populate("category").exec(function (error, post) {
-        if (error) return next(error);
-        if (!post) return next(error);
-
-        res.json(post);
-    });
-    /*if( id.length > 24){
-        // for slug
-        Post.findOne({ slug: id})
-            .populate('category')
-            .exec((error, post)=>{
-                if(error) return next(error);
-                if(!post) return next(error);
-                 res.json(post);
+    redisClient.get(prefix.post + id, function (error, postJSON) {
+        if (postJSON) {
+            console.log("from cache post");
+            return res.json(JSON.parse(postJSON));
+        } else {
+            Post.findOne({ slug: id }).populate("category").exec(function (error, post) {
+                if (error) {
+                    return next(error);
+                } else if (post === null) {
+                    return res.status(404).json({
+                        msg: "404"
+                    });
+                } else {
+                    eventEmitterInstance.emit(POST.VISITED, post);
+                    res.json(post);
+                }
             });
-    }
-    Post.findById(id)
-        .populate('category')
-        .exec((error, post)=>{
-            if(error) return next(error);
-            if(!post) return next(error);
-             res.json(post);
-        });
-        */
+        }
+    });
 };
 
 var getCategoryPost = function (req, res, next) {
     var slug = req.params.categorySlug;
-    Category.findOne({ url: slug }).exec(function (error, category) {
-        if (error) {
-            return next(error);
-        }
-        if (category === null) {
-            res.status(404).json({
-                msg: "404"
-            });
+
+    redisClient.get(prefix.category + slug, function (error, postList) {
+        if (postList) {
+            console.log("from cache category");
+            return res.json(JSON.parse(postList));
         } else {
-            Post.find({ category: category._id }).populate("category").exec(function (error, posts) {
+            Category.findOne({ url: slug }).exec(function (error, category) {
                 if (error) {
                     return next(error);
                 }
-                if (!posts) {
-                    return next(error);
+                if (category === null) {
+                    res.status(404).json({
+                        msg: "404"
+                    });
+                } else {
+                    Post.find({ category: category._id }).populate("category").exec(function (error, posts) {
+                        if (error) {
+                            return next(error);
+                        }
+                        if (!posts) {
+                            return next(error);
+                        }
+                        eventEmitterInstance.emit(CATEGORY.VISITED, posts, slug);
+                        res.json(posts);
+                    });
                 }
-                res.json(posts);
             });
         }
     });

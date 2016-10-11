@@ -10,5 +10,9 @@ const cleanCache = (req, res, next)=> {
     });
 }
 
+const cleanPostCache = (req, res, next)=>{
+
+}
+
 export { cleanCache }
 

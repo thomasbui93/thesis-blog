@@ -14,6 +14,8 @@ var checkAuth = _interopRequire(require("./auth"));
 
 var allController = _interopRequire(require("./all"));
 
+var cacheController = _interopRequire(require("./cache"));
+
 module.exports = function (app) {
     app.all("/api/*", checkAuth);
     app.use("/api/posts", postController);
@@ -21,4 +23,5 @@ module.exports = function (app) {
     app.use("/api/images", imageController);
     app.use("/authenticate", userController);
     app.use("/", allController);
+    app.use("/api/cache", cacheController);
 };

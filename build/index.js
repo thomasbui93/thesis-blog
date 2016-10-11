@@ -22,11 +22,14 @@ events(eventEmitterInstance);
 
 var isDeveloping = process.argv[2] !== "--production";
 var port = isDeveloping ? 3000 : process.argv[3];
+
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression({ threshold: 0 }));
+
 //database config
 mongoose.connect(serverConfig.database.mongodb.uri, serverConfig.database.mongodb.options);
+
 //config routes
 
 var routes = _interopRequire(require("./routes"));

@@ -70,17 +70,17 @@ PostSchema.pre("save", function (next) {
             this.thumbnailImage = meta.defaultImage;
         }
     }
-
     next();
 });
 
-PostSchema.post("save", function (doc) {
+PostSchema.post("new", function (doc) {
     "use strict";
-    if (undefined.isNew) {
-        eventEmitter.emit(POST.NEW, doc);
-    } else {
-        eventEmitter.emit(POST.UPDATE, doc);
-    }
+    eventEmitter.emit(POST.NEW, doc);
+});
+
+PostSchema.post("update", function (doc) {
+    "use strict";
+    eventEmitter.emit(POST.UPDATE, doc);
 });
 
 PostSchema.post("remove", function (doc) {

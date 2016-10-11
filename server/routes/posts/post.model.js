@@ -58,19 +58,18 @@ PostSchema.pre('save', function (next) {
             this.thumbnailImage = meta.defaultImage;
         }
     }
-
     next();
 });
 
-PostSchema.post('save', (doc)=>{
+PostSchema.post('new', (doc)=>{
     "use strict";
-    if(this.isNew){
-        eventEmitter.emit(POST.NEW, doc);
-    }else {
-        eventEmitter.emit(POST.UPDATE, doc);
-    }
+    eventEmitter.emit(POST.NEW, doc);
 });
 
+PostSchema.post('update', (doc)=>{
+    "use strict";
+    eventEmitter.emit(POST.UPDATE, doc);
+});
 
 PostSchema.post('remove', (doc)=>{
     "use strict";

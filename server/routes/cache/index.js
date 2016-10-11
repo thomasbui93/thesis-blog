@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import {cacheClean} from './category.controller';
+import { cleanCache } from './controller';
 
 let router = Router() ;
 
-router.post('/clean',  cacheClean);
+router.post('/clean',  cleanCache);
 
 export default router;
