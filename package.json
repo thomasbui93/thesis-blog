@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build",
     "transform": "babel -d ./build ./server",
-    "production": "node ./build/index.js --production 80",
+    "production": "node ./build/index.js --production 80 &",
     "build": "webpack --watch --progress --profile --colors --optimize-occurence-order --optimize-dedupe"
   },
   "repository": {
