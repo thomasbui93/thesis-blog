@@ -10,8 +10,6 @@ class PostApp extends Component {
     }
     componentDidMount(){
         check().then((response)=>{
-            console.log(response);
-
             this.setState({
                 authenticated: true
             });

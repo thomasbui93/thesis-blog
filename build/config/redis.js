@@ -2,7 +2,7 @@
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
-var redisClient = require("redis").createClient;
+var redisClient = require("redis-node").createClient;
 
 var database = _interopRequire(require("./database"));
 
