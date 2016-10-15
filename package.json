@@ -8,8 +8,8 @@
     "lint": "eslint . --ext .js --ext .jsx",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build",
-    "transform": "babel -d ./build ./server -s",
-    "production": "node ./build/index.js --production 80 &",
+    "transform": "babel -d ./build ./server",
+    "production": "node ./build/index.js --production 80",
     "build": "webpack --watch --progress --profile --colors --optimize-occurence-order --optimize-dedupe"
   },
   "repository": {
@@ -76,6 +76,7 @@
     "react-dropzone": "^3.3.2",
     "react-router": "^2.0.0-rc5",
     "redis": "^2.6.2",
+    "redis-node": "^0.4.0",
     "superagent": "^1.7.2",
     "time-ago": "^0.1.0",
     "to-markdown": "^2.0.1",

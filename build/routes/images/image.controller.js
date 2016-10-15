@@ -101,4 +101,3 @@ exports.create = create;
 exports.getAll = getAll;
 exports.update = update;
 exports.remove = remove;
-//# sourceMappingURL=image.controller.js.map

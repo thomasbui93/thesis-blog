@@ -25,4 +25,3 @@ var jsonTokenKey = "invincibleKhoa";
 exports.meta = meta;
 exports.jsonTokenKey = jsonTokenKey;
 exports.confidential = confidential;
-//# sourceMappingURL=index.js.map

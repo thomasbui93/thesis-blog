@@ -26,4 +26,3 @@ var Device = new Schema({
 });
 
 module.exports = mongoose.model("Device", Device);
-//# sourceMappingURL=device.model.js.map

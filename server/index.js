@@ -4,18 +4,22 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import serverConfig  from './config';
 import compression from 'compression';
+import eventEmitterInstance from './events/events';
+import events from './events';
 
-
+events(eventEmitterInstance);
 
 const isDeveloping = process.argv[2] !== '--production';
 const port = isDeveloping ? 3000 : process.argv[3];
+
 let app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression({ threshold: 0 }));
+
 //database config
 mongoose.connect(serverConfig.database.mongodb.uri, serverConfig.database.mongodb.options);
-//config routes
 
+//config routes
 import routes from './routes';
 routes(app);
 //end config routes

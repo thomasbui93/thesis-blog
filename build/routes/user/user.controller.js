@@ -90,4 +90,3 @@ exports.getUser = getUser;
 exports.setUser = setUser;
 exports.check = check;
 exports.checkAuth = checkAuth;
-//# sourceMappingURL=user.controller.js.map

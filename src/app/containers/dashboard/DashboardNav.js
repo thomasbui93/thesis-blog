@@ -34,6 +34,11 @@ class DashboardNav extends Component{
                         Posts
                     </Link>
                 </div>
+                <div className="nav-icon">
+                    <Link to="/dashboard/cache">
+                        Cache
+                    </Link>
+                </div>
                 <div className="nav-icon" onClick={this.logout}>
                     Logout
                 </div>

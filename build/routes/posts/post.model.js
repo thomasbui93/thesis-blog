@@ -10,6 +10,10 @@ var Schema = _mongoose.Schema;
 
 var meta = require("../../config").meta;
 
+var eventEmitter = _interopRequire(require("../../events/events"));
+
+var POST = require("../../events/databases/config").POST;
+
 var PostSchema = new Schema({
     createdAt: {
         type: Date,
@@ -69,5 +73,19 @@ PostSchema.pre("save", function (next) {
     next();
 });
 
+PostSchema.post("new", function (doc) {
+    "use strict";
+    eventEmitter.emit(POST.NEW, doc);
+});
+
+PostSchema.post("update", function (doc) {
+    "use strict";
+    eventEmitter.emit(POST.UPDATE, doc);
+});
+
+PostSchema.post("remove", function (doc) {
+    "use strict";
+    eventEmitter.emit(POST.REMOVE, doc);
+});
+
 module.exports = mongoose.model("Post", PostSchema);
-//# sourceMappingURL=post.model.js.map

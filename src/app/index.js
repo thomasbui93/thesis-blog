@@ -8,7 +8,7 @@ import {PostApp} from './containers/dashboard/post/PostApp';
 import {PostManage} from './containers/dashboard/post/PostManage';
 import {CreatePost} from './containers/dashboard/post/CreatePost';
 import {UpdatePost} from './containers/dashboard/post/UpdatePost';
-
+import {CacheManage} from './containers/dashboard/CacheManage';
 import {ImageManage} from './containers/dashboard/ImageManage';
 import {CategoriesContainer} from './containers/dashboard/categories/CategoriesContainer';
 
@@ -34,6 +34,7 @@ export default (
             </Route>
             <Route path="media" component={ImageManage}/>
             <Route path="categories" component={CategoriesContainer}/>
+            <Route path="cache" component={CacheManage}/>
         </Route>
         <Route path="about" component={About}/>
         <Route path="*" component={NotFound}/>
