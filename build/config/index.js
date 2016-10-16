@@ -8,17 +8,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var DBConfig = _interopRequire(require("./database"));
 
+var confidential = require("./credentials").confidential;
+
 exports["default"] = {
     database: DBConfig
 };
 
 var meta = {
     defaultImage: "https://cdn2.iconfinder.com/data/icons/nodejs-1/512/nodejs-512.png"
-};
-var confidential = {
-    email: "buidangkhoa2602@gmail.com",
-    password: "123456",
-    name: "Khoa D. Bui"
 };
 
 var jsonTokenKey = "invincibleKhoa";
