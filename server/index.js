@@ -1,4 +1,5 @@
 import path from 'path';
+import {createServer} from 'http';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -6,6 +7,8 @@ import serverConfig  from './config';
 import compression from 'compression';
 import eventEmitterInstance from './events/events';
 import events from './events';
+import {initSocket} from './sockets';
+
 
 events(eventEmitterInstance);
 
@@ -61,9 +64,14 @@ if (isDeveloping) {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
 }
-app.listen(port, '0.0.0.0', function onStart(err) {
+
+var server = createServer(app);
+initSocket(server);
+
+server.listen(port, '0.0.0.0', function onStart(err) {
   if (err) {
     console.log(err);
   }
   console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
 });
+

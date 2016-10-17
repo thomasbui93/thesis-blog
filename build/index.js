@@ -4,6 +4,8 @@ var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["defau
 
 var path = _interopRequire(require("path"));
 
+var createServer = require("http").createServer;
+
 var express = _interopRequire(require("express"));
 
 var mongoose = _interopRequire(require("mongoose"));
@@ -17,6 +19,8 @@ var compression = _interopRequire(require("compression"));
 var eventEmitterInstance = _interopRequire(require("./events/events"));
 
 var events = _interopRequire(require("./events"));
+
+var initSocket = require("./sockets").initSocket;
 
 events(eventEmitterInstance);
 
@@ -74,7 +78,11 @@ if (isDeveloping) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 }
-app.listen(port, "0.0.0.0", function onStart(err) {
+
+var server = createServer(app);
+initSocket(server);
+
+server.listen(port, "0.0.0.0", function onStart(err) {
   if (err) {
     console.log(err);
   }
